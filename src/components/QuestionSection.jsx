@@ -1,0 +1,25 @@
+import Option from './Option'
+
+const QuestionSection = ({question, options, correctAnswer, selectAnswerIndex, handleOptionClick}) => {
+  return (
+    <>
+      <h1 className='text-2xl leading-[28.8px] font-bold text-center mb-[69px] max-w-[413px] mx-auto'>
+        {question}
+      </h1>
+
+      <ul className='flex w-full justify-between'>
+        {options.map((option, index) => {
+          const answer = option.text === correctAnswer
+
+          return (
+            <Option key={option.id} index={index} answer={answer} handleOptionClick={handleOptionClick} isSelected={index === selectAnswerIndex} src={option.id} optionText={option.text} />
+          )
+        })}
+      </ul>
+    </>
+  )
+}
+
+
+
+export default QuestionSection
